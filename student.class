@@ -1,0 +1,110 @@
+//*******************************************************************
+// Java compiler created in PHP to quickly and safely test code.
+// NOTE: please read the 'More Info' tab to the right for shortcuts.
+//*******************************************************************
+
+import java.lang.Math; // header stuff MUST go above the first class
+
+// our main class becomes a file but the main method is still found
+public class Main{
+  public static void main(String[] args)
+  {
+   	Classroom classroom = new Classroom();
+    int width = 10;
+    int height = 15;
+    for(int i = 0; i<width * height; i++)
+    {
+     	 
+    }
+  }
+}
+public class Student{
+  private String name;
+  private int id, grade;
+  public Student(String name, int id, int grade)
+  {
+   	this.name = name;
+    this.id = id;
+    this.grade = grade;
+  }
+  public int getID(){
+   	return this.id; 
+  }
+  public String getName()
+  {
+    return this.name;
+  }
+  public void setID(int id)
+  {
+   	this.id = id; 
+  }
+  public void setName(String name)
+  {
+   	this.name = name; 
+  }
+  public int getGrade()
+  {
+   	return this.grade; 
+  }
+  public void setGrade(int grade)
+  {
+   	this.grade = grade; 
+  }
+  public static String getRandomName()
+  {
+    List<String> firstName = new ArrayList<>();
+    firstName.add("Andrew");
+    firstName.add("Peter");
+    firstName.add("Michael");
+    firstName.add("Cole");
+    firstName.add("Collin");
+    firstName.add("Ellen");
+    firstName.add("Chuck");
+    firstName.add("Victoria");
+    firstName.add("Charles");
+    firstName.add("Ben");
+    firstName.add("Virginia");
+    List<String> lastName = new ArrayList<>();
+    lastName.add("Tekverk");
+    lastName.add("Godas");
+    lastName.add("McKenna");
+    lastName.add("Stein");
+    lastName.add("Camilleri");
+    lastName.add("Biata");
+    lastName.add("Riepe");
+    lastName.add("Hassilhoff");
+    Random r = new Random();
+    String randomFirst = firstName.get(r.nextInt(firstName.size()));
+    String randomLast = lastName.get(r.nextInt(lastName.size()));
+    return randomFirst + " " + randomLast;
+  }
+}
+public class Classroom{
+ 	private HashMap<Point, Student> studentMap = new HashMap<>(); 
+  	public Classroom()
+    {
+    
+    }
+  	public HashMap<Point,Student> getSeating()
+    {
+     	return studentMap; 
+    }
+  	public void setSeating(HashMap<Point, Student> studentMap)
+    {
+     	this.studentMap = studentMap; 
+    }
+  	public void seatStudent(Student student, Point p)
+  	{
+   		studentMap.put(p,student); 
+  	}
+  	public void getStudent(Point p)
+    {
+     	return studentMap.get(p); 
+    }
+  	public int getStudentCount()
+    {
+     	return studentMap.keySet().size(); 
+    }
+  
+  	
+}
