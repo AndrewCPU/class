@@ -4,7 +4,7 @@
 //*******************************************************************
 
 import java.lang.Math; // header stuff MUST go above the first class
-
+import java.util.HashMap;
 // our main class becomes a file but the main method is still found
 public class Main{
   public static void main(String[] args)
@@ -12,10 +12,25 @@ public class Main{
    	Classroom classroom = new Classroom();
     int width = 10;
     int height = 15;
+    Random random = new Random();
+    int currentX = 0;
+    int currentY = 0;
     for(int i = 0; i<width * height; i++)
     {
-     	 
+     	String name = Student.getRandomName();
+      	int grade = random.nextInt(13 - 9) + 9;
+      	int studentID = random.nextInt(10000);
+      	Student student = new Student(name, studentID, grade);
+      	Point p = new Point(currentX, currentY);
+      	classroom.seatStudent(student, p);
+      	currentX++;
+      	if(currentX>width)
+        {
+         	currentX = 0;
+          	currentY++;
+        }
     }
+    System.out.println(classrom.getSeating().toString());
   }
 }
 public class Student{
